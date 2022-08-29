@@ -1,6 +1,19 @@
 // template_rlw09fi
 //service_0ap1bql
 // vZvjZZO-6BzLZ6Kik
+let isModalOpen = false
+let constrastToggle = false
+
+function toggleContrast() {
+    constrastToggle = !constrastToggle
+    if (constrastToggle) {
+        document.body.classList += "dark-theme"
+    }
+    else {
+        document.body.classList.remove("dark-theme")
+    }
+    
+}
 
 function contact() {
     event.preventDefault();
@@ -15,17 +28,16 @@ function contact() {
             event.target,
             'vZvjZZO-6BzLZ6Kik'
     ).then(() => {
-        loading.classList.remove("modal__overlay--visible");
+        loading.classList.remove("modal__overlay--visible")
         success.classList += " modal__overlay--visible"
     }).catch(() => {
-        loading.classList.remove("modal__overlay--visible");
+        loading.classList.remove("modal__overlay--visible")
         alert(
             "The email service is temporarily unavailable. Please contact me directly on sharathpm@yahoo.com"
         )
     })
 }
 
-let isModalOpen = false;
 function toggleModal() {
     if (isModalOpen) {
         isModalOpen = false
