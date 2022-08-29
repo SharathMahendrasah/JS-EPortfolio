@@ -6,10 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sharath Mahendrasah</title>
     <link rel="stylesheet" href="./CSS/style.css" />
-    <script
-      src="https:/kit.fontawesome.com/e2315a9b81.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/e2315a9b81.js" crossorigin="anonymous">
+    </script>
+    <script src="./index.js"></script>
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+(function(){
+  emailjs.init("vZvjZZO-6BzLZ6Kik");
+})();
+</script>
     <script src="./app.js"></script>
   </head>
 
@@ -34,14 +41,14 @@
               >Projects</a
             >
           </li>
-          <li class="nav__link">
+          <li class="nav__link" onclick="toggleModal()">
             <a
               href="#"
               class="nav__link--anchor link__hover-effect link__hover-effect--black"
               >Contact</a
             >
           </li>
-          <li class="nav__link click">
+          <li class="nav__link click" onclick="toggleContrast()">
             <a
               href="#"
               class="nav__link--anchor link__hover-effect link__hover-effect--black"
@@ -61,7 +68,7 @@
                 strong passion for building web applications with great user
                 experiences.
                 <br/>
-                Here's a bit more <b class="purple">about me.</b>
+                Here's a bit more <b class="purple click" onclick="toggleModal()">about me.</b>
               </p>
               <div class="social__list">
                 <a
@@ -85,7 +92,7 @@
               </div>
             </div>
           </header>
-          <button class="mail__btn click">
+          <button class="mail__btn click" onclick="toggleModal()">
             <i class="fa-solid fa-envelope"></i>
           </button>
           <a href="#projects" class="scroll">
@@ -124,7 +131,42 @@
               </div>
             </div>
             <div class="modal__half modal__contact">
-              Let's have a chat!
+              <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+              <h3 class="modal__title modal__title--contact">
+                Let's have a chat!
+              </h3>
+              <h4 class="modal__sub-title modal__sub-title--contact">
+                I'm currently open to new opportunities.
+              </h4>
+              <form onsubmit="contact(event)" id="contact__form">
+                <div class="form__item">
+                  <label class="form__item--label">
+                    Name
+                  </label>
+                  <input type="text" class="input" name="user_name"></input>
+                </div>
+                <div class="form__item">
+                  <label class="form__item--label">
+                    Email
+                  </label>
+                  <input type="email" class="input" name="user_email"></input>
+                </div>
+                <div class="form__item">
+                  <label class="form__item--label">
+                    Message
+                  </label>
+                  <textarea type="text" class="input" name="message" ></textarea>
+                </div>
+                <button id="contact__submit" class="form__submit">
+                  Send it my way
+                </button>
+              </form>
+              <div class="modal__overlay modal__overlay--loading">
+                <i class="fas fa-spinner"></i>
+              </div>
+              <div class="modal__overlay modal__overlay--success">
+                Thanks for the message, looking forward to speaking to you soon!
+              </div>
             </div>
           </div>
         </div>
@@ -187,8 +229,8 @@
               link__hover-effect--white">
               LinkedIn
             </a>
-            <a href="#"   
-              target="_blank" class="
+            <a href="#""   
+              class="
               footer__social--link 
               link__hover-effect
               link__hover-effect--white">
